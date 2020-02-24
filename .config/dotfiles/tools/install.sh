@@ -1,5 +1,10 @@
 #!/bin/sh
 
+CWD=$(pwd)
+
+echo "Changing directory to $HOME"
+cd $HOME
+
 while true; do
     read -p "Backup files what would be overwritten by checkout? [Y/n]: " yn
     case $yn in
@@ -27,3 +32,6 @@ git --git-dir=$HOME/.dotfiles --work-tree=$HOME checkout
 git --git-dir=$HOME/.dotfiles --work-tree=$HOME config --local status.showUntrackedFiles no
 
 echo "Installation Complete"
+
+echo "Changing directory back to $CWD"
+cd $CWD
