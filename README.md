@@ -9,14 +9,22 @@ Before installing ensure the following OS level dependencies are installed.
 
 * `git`
 * `zsh`
-* `ohmyzsh`
+* `ohmyzsh` with `zgen`
+* `tmux` with `tpm`
+* `neovim` with `vim-plug`
 
 ## Installation
 
-Run the following `git` commands:
+Run one of the following commnads on your terminal:
+
+### wget
 
 ```
-git clone --bare https://github.com/krak3n/dotfiles.git $HOME/.dotfiles
-git --git-dir=$HOME/.dotfiles --work-tree=$HOME checkout
-git --git-dir=$HOME/.dotfiles --work-tree=$HOME config --local status.showUntrackedFiles no
+sh -c "$(wget -O- https://raw.githubusercontent.com/krak3n/dotfiles/master/.config/dotfiles/tools/install.sh)"
+```
+
+### curl
+
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/krak3n/dotfiles/master/.config/dotfiles/tools/install.sh)"
 ```
