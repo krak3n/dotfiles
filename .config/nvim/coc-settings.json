@@ -5,5 +5,10 @@
       "filetypes": ["terraform"],
       "initializationOptions": {}
     }
+  },
+  "go.enable": true,
+  "go.goplsOptions": {
+    "completeUnimported": true,
+    "staticcheck": true
   }
 }
