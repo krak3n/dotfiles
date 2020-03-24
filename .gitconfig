@@ -16,6 +16,8 @@
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an %ae>%Creset' --abbrev-commit
     up = pull
 	lt = describe --tags --abbrev=0
+	pl = "!git pull origin \"$(git symbolic-ref --short HEAD)\""
+	ph = "!git push origin \"$(git symbolic-ref --short HEAD)\""
 [color]
     ui = auto
 [color "diff"]
