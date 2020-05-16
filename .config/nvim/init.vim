@@ -85,7 +85,6 @@ set virtualedit=block           " Position cursor anywhere in visual block
 set synmaxcol=1000              " Don't syntax highlight long lines
 set formatoptions+=1            " Don't break lines after a one-letter word
 set formatoptions-=t            " Don't auto-wrap text
-set conceallevel=0              " Disabled autohide in vim-json
 set updatetime=300              " Smaller updatetime for CursorHold & CursorHoldI
 set signcolumn=yes              " always show signcolumns
 set backupdir=/tmp//
@@ -163,8 +162,6 @@ set display=lastline
 
 set showbreak=↪\
 set listchars=tab:⤷\ ,eol:⤶,nbsp:␣,trail:•,extends:⟩,precedes:⟨
-
-syntax match neq "!=" conceal cchar=≠
 
 " -----------------------------------------------------------------------------
 " Key Bindings
