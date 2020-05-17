@@ -1,10 +1,30 @@
 {
-  "languageserver": {
-    "terraform": {
-      "command": "terraform-lsp",
-      "filetypes": ["terraform"],
-      "initializationOptions": {}
-    }
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "go",
+    "graphql",
+    "html",
+    "javascript",
+    "json",
+    "markdown",
+    "python",
+    "yaml"
+  ],
+  "snippets.ultisnips.directories": [
+    "UltiSnips",
+    "/home/chris/.config/ultisnips"
+  ],
+  "explorer.width": 30,
+  "explorer.icon.enableVimDevicons": true,
+  "explorer.icon.enableNerdfont": true,
+  "explorer.previewAction.onHover": false,
+  "explorer.keyMappings": {
+    "<cr>": [
+      "expandable?",
+      "expand",
+      "open"
+    ],
+    "v": "open:split"
   },
   "go.enable": true,
   "go.goplsOptions": {

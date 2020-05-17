@@ -1,0 +1,48 @@
+" -----------------------------------------------------------------------------
+" Theme / Color Settings
+" -----------------------------------------------------------------------------
+
+" Set background and support 256 colors
+set background=light
+set t_Co=256
+
+" Enable termguicolors if set
+if (has('termguicolors'))
+	set termguicolors
+endif
+
+" Color Scheme configuration
+let g:onedark_termcolors=16
+let g:onedark_terminal_italics=1
+
+" Set Color Scheme
+colorscheme onedark
+
+" Enable syntax highlighting
+syntax on
+filetype plugin indent on
+
+" -----------------------------------------------------------------------------
+" Airline
+" -----------------------------------------------------------------------------
+
+" Status line
+let g:airline_skip_empty_sections = 0
+let g:airline#extensions#syntastic#enabled = 0
+let g:airline_detect_iminsert = 0
+let g:airline#extensions#tmuxline#enabled = 0
+let g:airline#extensions#wordcount#enabled = 0
+let g:airline_theme = 'onedark'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tagbar#enabled = 1
+
+" Tabline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_tabs = 0
+let g:airline#extensions#tabline#show_buffers = 1
+let g:airline#extensions#tabline#tab_nr_type = 1
+let g:airline#extensions#tabline#show_splits = 0
+let g:airline#extensions#tabline#show_close_button = 1
+let g:airline#extensions#tabline#buffer_nr_show = 0
+let g:airline#extensions#tabline#fnamemod = ':.'
+let g:airline#extensions#tabline#fnamecollapse = 0
