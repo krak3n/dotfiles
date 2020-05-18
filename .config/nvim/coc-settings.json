@@ -10,6 +10,11 @@
     "python",
     "yaml"
   ],
+  "diagnostic.errorSign": "",
+  "diagnostic.warningSign": "",
+  "diagnostic.infoSign": "",
+  "diagnostic.hintSign": "",
+  "suggest.snippetIndicator": " ",
   "snippets.ultisnips.directories": [
     "UltiSnips",
     "/home/chris/.config/ultisnips"

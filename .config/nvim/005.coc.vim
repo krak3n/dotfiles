@@ -4,9 +4,7 @@
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
+" other plugin before putting this into your config.  inoremap <silent><expr> <TAB> \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
@@ -124,14 +122,12 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-
-" Explorer
-" let g:coc_explorer_global_presets = {
-" \   'floating': {
-" \      'position': 'floating',
-" \   }
-" \ }
-
+" Launch CoC Explorer
 nnoremap <C-n> :CocCommand explorer<CR>
-"nmap <leader>f :CocCommand explorer --preset floating<CR>
-"autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
+" Close explorer when it is all that is left
+autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
+
+" CoC Hilight colors
+hi! CocErrorSign guifg=#E06C75
+hi! CocWarningSign guifg=#E5C07B
+hi! CocInfoSign guifg=#61AFEF
