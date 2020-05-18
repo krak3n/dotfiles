@@ -15,13 +15,27 @@
     "/home/chris/.config/ultisnips"
   ],
   "explorer.width": 30,
-  "explorer.icon.enableVimDevicons": true,
+  "explorer.icon.enableVimDevicons": false,
   "explorer.icon.enableNerdfont": true,
   "explorer.previewAction.onHover": false,
+  "explorer.file.column.git.showIgnored": true,
+  "explorer.file.column.git.icon.mixed": "",
+  "explorer.file.column.git.icon.modified": "",
+  "explorer.file.column.git.icon.added": "",
+  "explorer.file.column.git.icon.deleted": "",
+  "explorer.file.column.git.icon.renamed": "",
+  "explorer.file.column.git.icon.copied": "",
+  "explorer.file.column.git.icon.unmerged": "",
+  "explorer.file.column.git.icon.untracked": "ﰚ",
+  "explorer.file.column.git.icon.ignored": "",
   "explorer.keyMappings": {
     "<cr>": [
       "expandable?",
-      "expand",
+      [
+        "expanded?",
+        "collapse",
+        "expand"
+      ],
       "open"
     ],
     "v": "open:split"
