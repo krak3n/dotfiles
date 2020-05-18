@@ -46,3 +46,6 @@ let g:airline#extensions#tabline#show_close_button = 1
 let g:airline#extensions#tabline#buffer_nr_show = 0
 let g:airline#extensions#tabline#fnamemod = ':.'
 let g:airline#extensions#tabline#fnamecollapse = 0
+
+" Linting using ale
+let g:airline#extensions#ale#enabled = 1
