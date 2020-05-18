@@ -23,6 +23,7 @@ Plug 'ryanoasis/vim-devicons'
 " IDE
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Intelisense
 Plug 'w0rp/ale'                                 " Linting
+Plug 'Yggdroot/indentLine'                      " Indentation Highlighting
 Plug 'sgur/vim-editorconfig'                    " Language specific syntax configuration  (e.g tabs vs spaces)
 Plug 'tmux-plugins/vim-tmux-focus-events'       " Add support for tnmux focus events
 Plug 'mhinz/vim-sayonara', {'on': 'Sayonara'}   " Buffer deletion

@@ -49,3 +49,15 @@ let g:airline#extensions#tabline#fnamecollapse = 0
 
 " Linting using ale
 let g:airline#extensions#ale#enabled = 1
+
+" -----------------------------------------------------------------------------
+" Indent Highlighting
+" -----------------------------------------------------------------------------
+
+let g:indentLine_enabled = 1
+let g:indentLine_color_term = 8
+let g:indentLine_char = '⤷'
+let g:indentLine_fileTypeExclude = [
+  \ 'help',
+  \ 'coc-explorer'
+  \ ]
