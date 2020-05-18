@@ -28,6 +28,9 @@ Plug 'mhinz/vim-sayonara', {'on': 'Sayonara'}   " Buffer deletion
 Plug 'vim-airline/vim-airline'                  " Status / Tabline
 Plug 'vim-airline/vim-airline-themes'           " Themes for airline
 
+" Languages
+Plug 'fatih/vim-go' " Go
+
 " End vim-plug
 call plug#end()
 
