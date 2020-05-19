@@ -122,8 +122,18 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+" Explorer Presets
+let g:coc_explorer_global_presets = {
+\   'floating': {
+\       'position': 'floating',
+\   },
+\ }
+
 " Launch CoC Explorer
-nnoremap <C-n> :CocCommand explorer<CR>
+nmap <leader>e :CocCommand explorer<CR>
+nmap <leader>E :CocCommand explorer --preset floating<CR>
+
 " Close explorer when it is all that is left
 autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
 

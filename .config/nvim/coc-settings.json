@@ -5,7 +5,6 @@
     "graphql",
     "html",
     "javascript",
-    "json",
     "markdown",
     "python",
     "yaml"
@@ -31,7 +30,7 @@
   "explorer.file.column.git.icon.renamed": "",
   "explorer.file.column.git.icon.copied": "",
   "explorer.file.column.git.icon.unmerged": "",
-  "explorer.file.column.git.icon.untracked": "ﰚ",
+  "explorer.file.column.git.icon.untracked": "",
   "explorer.file.column.git.icon.ignored": "",
   "explorer.keyMappings": {
     "<cr>": [
@@ -44,6 +43,20 @@
       "open"
     ],
     "v": "open:split"
+  },
+  "languageserver": {
+    "terraform": {
+      "command": "terraform-ls",
+      "args": [
+        "serve"
+      ],
+      "filetypes": [
+        "terraform",
+        "tf"
+      ],
+      "initializationOptions": {},
+      "settings": {}
+    }
   },
   "go.enable": true,
   "go.goplsOptions": {

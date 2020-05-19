@@ -2,6 +2,8 @@
 " Key Mappings
 " -----------------------------------------------------------------------------
 
+let mapleader = "\\"
+
 " Disable arrow keys
 noremap  <Up> ""
 noremap! <Up> <Esc>

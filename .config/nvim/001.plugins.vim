@@ -30,8 +30,14 @@ Plug 'mhinz/vim-sayonara', {'on': 'Sayonara'}   " Buffer deletion
 Plug 'vim-airline/vim-airline'                  " Status / Tabline
 Plug 'vim-airline/vim-airline-themes'           " Themes for airline
 
+" Fuzzy Search
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'airblade/vim-rooter'
+
 " Languages
-Plug 'fatih/vim-go' " Go
+Plug 'fatih/vim-go'           " Go
+Plug 'hashivim/vim-terraform' " Terraform
 
 " End vim-plug
 call plug#end()

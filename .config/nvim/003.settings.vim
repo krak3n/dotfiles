@@ -23,7 +23,7 @@ set formatoptions+=1            " Don't break lines after a one-letter word
 set formatoptions-=t            " Don't auto-wrap text
 set formatoptions-=cro          " Stop newline continution of comments
 set updatetime=300              " Smaller updatetime for CursorHold & CursorHoldI
-set timeoutlen=100              " By default timeoutlen is 1000 ms
+set timeoutlen=500              " By default timeoutlen is 1000 ms
 set signcolumn=yes              " always show signcolumns
 set t_vb=                       " Prevent screen flashing
 
@@ -103,7 +103,7 @@ set cmdheight=2                 " Height of the command line
 set cmdwinheight=5              " Command-line lines
 set noequalalways               " Don't resize windows on split or close
 set laststatus=0                " Always show a status line
-set colorcolumn=80              " Highlight the 80th character limit
+set colorcolumn=120             " Highlight the 120th character limit
 set display=lastline
 
 " Characters shown for breaks, tabs, spaces etc
