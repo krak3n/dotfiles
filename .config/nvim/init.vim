@@ -9,6 +9,7 @@ source $HOME/.config/nvim/general/ui.vim
 " Plugin Configuration
 source $HOME/.config/nvim/plugins/coc.vim
 source $HOME/.config/nvim/plugins/ale.vim
+source $HOME/.config/nvim/plugins/fzf.vim
 
 " Language Specific Configuration
 source $HOME/.config/nvim/lang/go.vim
