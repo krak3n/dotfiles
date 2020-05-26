@@ -1,0 +1,92 @@
+# Reload when changes to this file are made
+live_config_reload: true
+
+# No transparency
+background_opacity: 1.0
+
+# Environment variables
+env:
+  TERM: alacritty
+
+colors:
+  # Default colours
+  primary:
+    background:        "#282C34"
+    foreground:        "#ABB2BF"
+    dim_foreground:    "#ABB2BF"
+    bright_foreground: "#ABB2BF"
+
+
+  # Normal colours
+  normal:
+    black:   "#3f4451"
+    red:     "#e06c75"
+    green:   "#98c379"
+    yellow:  "#d19a66"
+    blue:    "#61afef"
+    magenta: "#c678dd"
+    cyan:    "#56b6c2"
+    white:   "#e6e6e6"
+
+  # Bright colours
+  bright:
+    black:   "#4f5666"
+    red:     "#ff7b86"
+    green:   "#b1e18b"
+    yellow:  "#efb074"
+    blue:    "#5db6ff"
+    magenta: "#e48bff"
+    cyan:    "#63d4e0"
+    white:   "#ffffff"
+
+  # Dim colours
+  dim:
+    black:   "#626b80"
+    red:     "#e06c75"
+    green:   "#98c379"
+    yellow:  "#d19a66"
+    blue:    "#61afef"
+    magenta: "#c678dd"
+    cyan:    "#56b6c2"
+    white:   "#e6e6e6"
+
+# Bolds fonts use brighter colours
+draw_bold_text_with_bright_colors: true
+
+# Fonts
+font:
+  size: 10
+  normal:
+    family: "Hack Nerd Font Mono"
+    style: Regular
+  bold:
+    family: "Hack Nerd Font Mono"
+    style: Bold
+  italic:
+    family: "Hack Nerd Font Mono"
+    style: Italic
+  bold_italic:
+    family: "Hack Nerd Font Mono"
+    style: Bold Italic
+  offset:
+    x: 0
+    y: 0
+  glyph_offset:
+    x: 0
+    y: 0
+
+# Padding
+window:
+  padding:
+    x: 0
+    y: 0
+
+# Scroll history
+scrolling:
+  history: 10000
+  multiplier: 10
+
+# Text selection
+selection:
+  semantic_escape_chars: ',│`|:"'' ()[]{}<>'
+  save_to_clipboard: true
