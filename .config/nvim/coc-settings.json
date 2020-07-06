@@ -5,6 +5,7 @@
     "graphql",
     "html",
     "javascript",
+    "json",
     "markdown",
     "python",
     "yaml"
@@ -62,5 +63,22 @@
   "go.goplsOptions": {
     "completeUnimported": true,
     "staticcheck": true
-  }
+  },
+  "cSpell.language": "en-gb",
+  "cSpell.allowCompoundWords": true,
+  "cSpell.enabledLanguageIds": [
+    "go",
+    "markdown",
+    "plaintext",
+    "yml"
+  ],
+  "cSpell.ignorePaths": [
+    ".git"
+  ],
+  "cSpell.userWords": [
+    "Upsert",
+    "Upserts",
+    "gofig",
+    "vidsy"
+  ]
 }

@@ -38,6 +38,7 @@ Plug 'airblade/vim-rooter'
 " Languages
 Plug 'fatih/vim-go'           " Go
 Plug 'hashivim/vim-terraform' " Terraform
+Plug 'jparise/vim-graphql'       " GraphQL
 
 " End vim-plug
 call plug#end()

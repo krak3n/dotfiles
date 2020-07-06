@@ -15,6 +15,7 @@ let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
 let $FZF_DEFAULT_COMMAND="rg --files --hidden"
 
 let g:fzf_tags_command = 'ctags -R'
+let g:fzf_history_dir = "~/.config/.fzf_history"
 
 "Get Files
 command! -bang -nargs=? -complete=dir Files

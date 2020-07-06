@@ -6,6 +6,7 @@
     filemode = false
 [alias]
     co = checkout
+    cobr = checkout -B
     br = branch
     cm = commit
     st = status

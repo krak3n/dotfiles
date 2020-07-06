@@ -4,10 +4,6 @@ live_config_reload: true
 # No transparency
 background_opacity: 1.0
 
-# Environment variables
-env:
-  TERM: alacritty
-
 colors:
   # Default colours
   primary:
