@@ -12,11 +12,10 @@ if (has('termguicolors'))
 endif
 
 " Color Scheme configuration
-let g:onedark_termcolors=16
-let g:onedark_terminal_italics=1
+let g:nord_uniform_status_lines=0
 
 " Set Color Scheme
-colorscheme onedark
+colorscheme nord
 
 " Enable syntax highlighting
 syntax on
@@ -32,7 +31,6 @@ let g:airline#extensions#syntastic#enabled = 0
 let g:airline_detect_iminsert = 0
 let g:airline#extensions#tmuxline#enabled = 0
 let g:airline#extensions#wordcount#enabled = 0
-let g:airline_theme = 'onedark'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tagbar#enabled = 1
 

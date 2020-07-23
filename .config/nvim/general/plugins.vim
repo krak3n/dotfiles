@@ -18,6 +18,7 @@ call plug#begin(plugdir)
 
 " Theme
 Plug 'joshdick/onedark.vim'
+Plug 'arcticicestudio/nord-vim'
 Plug 'ryanoasis/vim-devicons'
 
 " IDE
