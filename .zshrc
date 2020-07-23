@@ -81,6 +81,11 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 alias golm='go list -m -f '"'"'{{ .Path }} | {{ .Dir }}'"'"' all'
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
+# Ruby Gem
+if which ruby >/dev/null && which gem >/dev/null; then
+    PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+fi
+
 ###################
 # Opperations
 ###################
