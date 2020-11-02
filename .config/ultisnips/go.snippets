@@ -2,6 +2,8 @@ priority 1
 
 snippet tabletest "Table Test" b
 func Test${1:name}(t *testing.T) {
+	t.Parallel()
+
 	cases := map[string]struct {
 	}{
 		"": {},
