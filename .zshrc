@@ -47,6 +47,7 @@ fi
 # Extra Completions
 fpath=("$HOME/.completions" $fpath)
 autoload -U compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
 
 # Set default Editor to Vim
 export EDITOR='nvim'
@@ -67,6 +68,9 @@ uuidv4() {
 
 # direnv - autoenv alternative
 eval "$(direnv hook zsh)"
+
+# bit (git cli)
+complete -o nospace -C /home/chris/.local/bin/bit bit
 
 ###################
 # Languages
