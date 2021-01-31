@@ -1,84 +1,44 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": [
-    "css",
-    "go",
-    "graphql",
-    "html",
-    "javascript",
-    "json",
-    "markdown",
-    "python",
-    "yaml"
-  ],
   "diagnostic.errorSign": "",
   "diagnostic.warningSign": "",
   "diagnostic.infoSign": "",
   "diagnostic.hintSign": "",
-  "suggest.snippetIndicator": " ",
-  "snippets.ultisnips.directories": [
-    "UltiSnips",
-    "/home/chris/.config/ultisnips"
-  ],
-  "explorer.width": 30,
+  "explorer.git.showIgnored": true,
+  "explorer.git.icon.status.mixed": "",
+  "explorer.git.icon.status.modified": "",
+  "explorer.git.icon.status.added": "",
+  "explorer.git.icon.status.deleted": "",
+  "explorer.git.icon.status.renamed": "",
+  "explorer.git.icon.status.copied": "",
+  "explorer.git.icon.status.unmerged": "",
+  "explorer.git.icon.status.untracked": "",
+  "explorer.git.icon.status.ignored": "",
   "explorer.icon.enableVimDevicons": false,
   "explorer.icon.enableNerdfont": true,
   "explorer.previewAction.onHover": false,
-  "explorer.file.column.git.showIgnored": true,
-  "explorer.file.column.git.icon.mixed": "",
-  "explorer.file.column.git.icon.modified": "",
-  "explorer.file.column.git.icon.added": "",
-  "explorer.file.column.git.icon.deleted": "",
-  "explorer.file.column.git.icon.renamed": "",
-  "explorer.file.column.git.icon.copied": "",
-  "explorer.file.column.git.icon.unmerged": "",
-  "explorer.file.column.git.icon.untracked": "",
-  "explorer.file.column.git.icon.ignored": "",
-  "explorer.keyMappings": {
-    "<cr>": [
-      "expandable?",
-      [
-        "expanded?",
-        "collapse",
-        "expand"
-      ],
-      "open"
-    ],
-    "v": "open:split"
-  },
-  "languageserver": {
-    "terraform": {
-      "command": "terraform-ls",
-      "args": [
-        "serve"
-      ],
-      "filetypes": [
-        "terraform",
-        "tf"
-      ],
-      "initializationOptions": {},
-      "settings": {}
-    }
-  },
+  "explorer.width": 30,
+  "git.enableGutters": true,
+  "git.addedSign.hlGroup": "GitGutterAdd",
+  "git.changedSign.hlGroup": "GitGutterChange",
+  "git.removedSign.hlGroup": "GitGutterDelete",
+  "git.topRemovedSign.hlGroup": "GitGutterDelete",
+  "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
+  "git.addGBlameToVirtualText": false,
+  "git.showCommitInFloating": true,
   "go.enable": true,
   "go.goplsOptions": {
+    "analyses": {
+      "fieldalignment": true,
+      "shadow": true,
+      "unusedparams": true
+    },
     "completeUnimported": true,
-    "staticcheck": true
+    "directoryFilters": ["-.git"],
+    "experimentalWorkspaceModule": true,
+    "gofumpt": true,
+    "linkTarget": "pkg.go.dev",
+    "staticcheck": true,
+    "usePlaceholders": true
   },
-  "cSpell.language": "en-gb",
-  "cSpell.allowCompoundWords": true,
-  "cSpell.enabledLanguageIds": [
-    "go",
-    "markdown",
-    "plaintext",
-    "yml"
-  ],
-  "cSpell.ignorePaths": [
-    ".git"
-  ],
-  "cSpell.userWords": [
-    "Upsert",
-    "Upserts",
-    "gofig",
-    "vidsy"
-  ]
+  "suggest.snippetIndicator": " "
 }
