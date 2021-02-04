@@ -44,6 +44,8 @@ fi
 # General
 ###################
 
+export PATH="/usr/local/sbin:$PATH"
+
 # Extra Completions
 fpath=("$HOME/.completions" $fpath)
 autoload -U compinit && compinit
@@ -61,6 +63,15 @@ if (( $+commands[xclip] )); then
 	alias cv='xclip -selection clipboard -o'
 fi
 
+# Copy / Paste integration aliases
+if (( $+commands[pbcopy] )); then
+	alias cc='pbcopy'
+fi
+
+if (( $+commands[pbpaste] )); then
+	alias cv='pbpaste'
+fi
+
 # Generate a uuid and copy it to the clipboaed
 uuidv4() {
 	uuidgen | tr -d '\n' | xclip -selection clipboard
@@ -71,6 +82,9 @@ eval "$(direnv hook zsh)"
 
 # bit (git cli)
 complete -o nospace -C /home/chris/.local/bin/bit bit
+
+# FZF
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ###################
 # Languages
