@@ -1,4 +1,5 @@
 {
+  "coc.preferences.extensionUpdateCheck": "daily",
   "diagnostic.errorSign": "",
   "diagnostic.warningSign": "",
   "diagnostic.infoSign": "",
@@ -40,5 +41,8 @@
     "staticcheck": true,
     "usePlaceholders": true
   },
-  "suggest.snippetIndicator": " "
+  "suggest.snippetIndicator": " ",
+  "snippets.ultisnips.directories": [
+    "~/.config/ultisnips"
+  ]
 }

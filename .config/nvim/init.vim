@@ -19,12 +19,13 @@ set nocompatible
 " Vim / Neovim support
 let autoloaddir = '~/.vim/autoload'
 let plugdir     = '~/.vim/plugged'
+let cocextdir   = '~/.config/coc/extensions/node_modules'
 if has('nvim')
 	let autoloaddir = '~/.config/nvim/autoload'
 	let plugdir     = autoloaddir . '/plugged'
 endif
 
-" Auto Install
+" Auto Install vim-plug
 if !filereadable(autoloaddir . '/plug.vim')
 	silent execute '!curl -fLo ' . autoloaddir . '/plug.vim  --create-dirs "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"'
 endif
@@ -39,11 +40,10 @@ call plug#begin(plugdir)
 Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }                          " Buffer deletion
 Plug 'tmux-plugins/vim-tmux-focus-events'                                " Add support for tnmux focus events
 Plug 'neoclide/coc.nvim', {'branch': 'release'}                          " Intellisense code engine, auto-completion, linting, code fixing
-Plug 'neoclide/coc-git', {'do': 'yarn install --frozen-lockfile'}        " Git Integration
 Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}           " Search
 Plug 'junegunn/fzf.vim'                                                  " Preview window
-Plug 'antoinemadec/coc-fzf', {'branch': 'release'}                       " coc fzf integration
 Plug 'airblade/vim-rooter'                                               " Change vim root directory
+
 "
 " UI
 "
@@ -52,7 +52,6 @@ Plug 'joshdick/onedark.vim'                                              " Theme
 Plug 'Yggdroot/indentLine'                                               " Indent Hilighting
 Plug 'vim-airline/vim-airline'                                           " Status / Tabline
 Plug 'ryanoasis/vim-devicons'                                            " File icons
-Plug 'weirongxu/coc-explorer', {'do': 'yarn install --frozen-lockfile'}  " File explorer
 
 "
 " Language Support
@@ -61,15 +60,8 @@ Plug 'weirongxu/coc-explorer', {'do': 'yarn install --frozen-lockfile'}  " File 
 " Language specific syntax configuration  (e.g tabs vs spaces)
 Plug 'sgur/vim-editorconfig'
 
-" Markup / Data Interchange  Formats / Configuration
-Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}       " JSON
-Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}       " YAML
-Plug 'kkiyama117/coc-toml', {'do': 'yarn install --frozen-lockfile'}     " TOML
-Plug 'fannheyward/coc-xml', {'do': 'yarn install --frozen-lockfile'}     " XML
-
 "Golang
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'josa42/coc-go', {'do': 'yarn install --frozen-lockfile'}
 
 " End vim-plug
 call plug#end()
@@ -276,12 +268,56 @@ nnoremap <M-l>  :vertical resize +2<CR>
 nnoremap <TAB> :bnext<CR>
 nnoremap <S-TAB> :bprevious<CR>
 
+"     ___   _     ___
+"    / _ | (_)___/ (_)__  ___
+"   / __ |/ / __/ / / _ \/ -_)
+"  /_/ |_/_/_/ /_/_/_//_/\__/
+"
+
+if isdirectory(expand(plugdir . "/vim-airline"))
+
+  " Status Line
+  let g:airline_skip_empty_sections = 0
+  let g:airline#extensions#syntastic#enabled = 0
+  let g:airline_detect_iminsert = 0
+  let g:airline#extensions#tmuxline#enabled = 0
+  let g:airline#extensions#wordcount#enabled = 0
+  let g:airline_powerline_fonts = 1
+  let g:airline#extensions#tagbar#enabled = 1
+
+  " Tab Line
+  let g:airline#extensions#tabline#enabled = 1
+  let g:airline#extensions#tabline#show_tabs = 0
+  let g:airline#extensions#tabline#show_buffers = 1
+  let g:airline#extensions#tabline#tab_nr_type = 1
+  let g:airline#extensions#tabline#show_splits = 0
+  let g:airline#extensions#tabline#show_close_button = 1
+  let g:airline#extensions#tabline#buffer_nr_show = 0
+  let g:airline#extensions#tabline#fnamemod = ':.'
+  let g:airline#extensions#tabline#fnamecollapse = 0
+
+endif
+
 "    _____     _____
 "   / ___/__  / ___/
 "  / /__/ _ \/ /__
 "  \___/\___/\___/
 
+" See coc-settings.json for further configuration.
 if isdirectory(expand(plugdir . "/coc.nvim"))
+
+  " Extensions
+  let g:coc_global_extensions = [
+        \ 'coc-explorer',
+        \ 'coc-git',
+        \ 'coc-go',
+        \ 'coc-json',
+        \ 'coc-pairs',
+        \ 'coc-toml',
+        \ 'coc-snippets',
+        \ 'coc-xml',
+        \ 'coc-yaml',
+        \ ]
 
   " Colors used for error, warning and info signs in gutters
   hi! CocErrorSign guifg=#E06C75
@@ -291,6 +327,7 @@ if isdirectory(expand(plugdir . "/coc.nvim"))
   " Use <Tab> / <S-Tab> to trigger completion with characters ahead and navigate.
   inoremap <silent><expr> <TAB>
         \ pumvisible() ? "\<C-n>" :
+        \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
         \ <SID>check_back_space() ? "\<TAB>" :
         \ coc#refresh()
   inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
@@ -413,13 +450,14 @@ if isdirectory(expand(plugdir . "/coc.nvim"))
   nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 endif
 
-"   _____             ____           __
-"  / ___/__  ________/ __/_ __ ___  / /__  _______ ____
-" / /__/ _ \/ __/___/ _/ \ \ // _ \/ / _ \/ __/ -_) __/
-" \___/\___/\__/   /___//_\_\/ .__/_/\___/_/  \__/_/
-"                           /_/
+"   _____     _____    ____           __
+"  / ___/__  / ___/___/ __/_ __ ___  / /__  _______ ____
+" / /__/ _ \/ /__/___/ _/ \ \ // _ \/ / _ \/ __/ -_) __/
+" \___/\___/\___/   /___//_\_\/ .__/_/\___/_/  \__/_/
+"                            /_/
 
-if isdirectory(expand(plugdir . "/coc-explorer"))
+" See coc-settings.json for further configuration.
+if isdirectory(expand(cocextdir . "/coc-explorer"))
 
   " Set ctrl+e to open coc-explorer
   nmap <leader>e :CocCommand explorer<CR>
@@ -429,14 +467,39 @@ if isdirectory(expand(plugdir . "/coc-explorer"))
 
 endif
 
-
-"   _____             ____    ___
-"  / ___/__  ________/ __/__ / _/
-" / /__/ _ \/ __/___/ _//_ // _/
-" \___/\___/\__/   /_/  /__/_/
+"   _____     _____    ___       _
+"  / ___/__  / ___/___/ _ \___ _(_)______
+" / /__/ _ \/ /__/___/ ___/ _ `/ / __(_-<
+" \___/\___/\___/   /_/   \_,_/_/_/ /___/
 "
 
-if isdirectory(expand(plugdir . "/coc-fzf"))
+if isdirectory(expand(cocextdir . "/coc-explorer"))
+
+  autocmd FileType markdown let b:coc_pairs_disabled = ['`']
+
+endif
+
+"   _____     _____    ____     _               __
+"  / ___/__  / ___/___/ __/__  (_)__  ___  ___ / /____
+" / /__/ _ \/ /__/___/\ \/ _ \/ / _ \/ _ \/ -_) __(_-<
+" \___/\___/\___/   /___/_//_/_/ .__/ .__/\__/\__/___/
+"                             /_/  /_/
+
+" See coc-settings.json for further configuration.
+if isdirectory(expand(cocextdir . "/coc-snippets"))
+
+  " User <TAB> for snippet completion
+  let g:coc_snippet_next = '<tab>'
+
+endif
+
+"    ____    ____
+"   / __/__ / __/
+"  / _//_ // _/
+" /_/  /__/_/
+"
+
+if isdirectory(expand(plugdir . "/fzf.vim"))
 
   " Default options
   let $FZF_DEFAULT_OPTS    = '--layout=reverse --info=inline'
@@ -516,67 +579,6 @@ if isdirectory(expand(plugdir . "/coc-fzf"))
 
 endif
 
-"     ____        __         __  ___
-"    /  _/__  ___/ /__ ___  / /_/ (_)__  ___
-"   _/ // _ \/ _  / -_) _ \/ __/ / / _ \/ -_)
-"  /___/_//_/\_,_/\__/_//_/\__/_/_/_//_/\__/
-
-if isdirectory(expand(plugdir . "/indentLine"))
-
-  let g:indentLine_enabled = 1
-  let g:indentLine_color_term = 8
-  let g:indentLine_char = '↳'
-  let g:indentLine_fileTypeExclude = [
-    \ 'help',
-    \ 'coc-explorer'
-    \ ]
-
-endif
-
-"     ___   _     ___
-"    / _ | (_)___/ (_)__  ___
-"   / __ |/ / __/ / / _ \/ -_)
-"  /_/ |_/_/_/ /_/_/_//_/\__/
-"
-
-if isdirectory(expand(plugdir . "/vim-airline"))
-
-  " Status Line
-  let g:airline_skip_empty_sections = 0
-  let g:airline#extensions#syntastic#enabled = 0
-  let g:airline_detect_iminsert = 0
-  let g:airline#extensions#tmuxline#enabled = 0
-  let g:airline#extensions#wordcount#enabled = 0
-  let g:airline_powerline_fonts = 1
-  let g:airline#extensions#tagbar#enabled = 1
-
-  " Tab Line
-  let g:airline#extensions#tabline#enabled = 1
-  let g:airline#extensions#tabline#show_tabs = 0
-  let g:airline#extensions#tabline#show_buffers = 1
-  let g:airline#extensions#tabline#tab_nr_type = 1
-  let g:airline#extensions#tabline#show_splits = 0
-  let g:airline#extensions#tabline#show_close_button = 1
-  let g:airline#extensions#tabline#buffer_nr_show = 0
-  let g:airline#extensions#tabline#fnamemod = ':.'
-  let g:airline#extensions#tabline#fnamecollapse = 0
-
-endif
-
-"     ____
-"    / __/__ ___ _____  ___  ___ ________ _
-"   _\ \/ _ `/ // / _ \/ _ \/ _ `/ __/ _ `/
-"  /___/\_,_/\_, /\___/_//_/\_,_/_/  \_,_/
-"           /___/
-
-if isdirectory(expand(plugdir . "/vim-sayonara"))
-
-  " Set ctrl+x / ctrl+X to close buffers
-  nnoremap <C-x> :Sayonara<CR>
-  nnoremap <C-X> :Sayonara!<CR>
-
-endif
-
 "    _____     __
 "   / ___/__  / /__ ____  ___ _
 "  / (_ / _ \/ / _ `/ _ \/ _ `/
@@ -613,4 +615,35 @@ endif
 " Orgnaise imports on save
 if isdirectory(expand(plugdir . "/coc-go"))
   autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
+endif
+
+"     ____        __         __  ___
+"    /  _/__  ___/ /__ ___  / /_/ (_)__  ___
+"   _/ // _ \/ _  / -_) _ \/ __/ / / _ \/ -_)
+"  /___/_//_/\_,_/\__/_//_/\__/_/_/_//_/\__/
+
+if isdirectory(expand(plugdir . "/indentLine"))
+
+  let g:indentLine_enabled = 1
+  let g:indentLine_color_term = 8
+  let g:indentLine_char = '↳'
+  let g:indentLine_fileTypeExclude = [
+    \ 'help',
+    \ 'coc-explorer'
+    \ ]
+
+endif
+
+"     ____
+"    / __/__ ___ _____  ___  ___ ________ _
+"   _\ \/ _ `/ // / _ \/ _ \/ _ `/ __/ _ `/
+"  /___/\_,_/\_, /\___/_//_/\_,_/_/  \_,_/
+"           /___/
+
+if isdirectory(expand(plugdir . "/vim-sayonara"))
+
+  " Set ctrl+x / ctrl+X to close buffers
+  nnoremap <C-x> :Sayonara<CR>
+  nnoremap <C-X> :Sayonara!<CR>
+
 endif
