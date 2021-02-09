@@ -613,7 +613,7 @@ if isdirectory(expand(plugdir . "/vim-go"))
 endif
 
 " Orgnaise imports on save
-if isdirectory(expand(plugdir . "/coc-go"))
+if isdirectory(expand(cocextdir . "/coc-go"))
   autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
 endif
 
