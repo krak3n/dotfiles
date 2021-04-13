@@ -42,7 +42,7 @@ if ! zgen saved; then
 	# Platforms / Utils
     zgen oh-my-zsh plugins/aws
     zgen oh-my-zsh plugins/gcloud
-    zgen load superbrothers/zsh-gcloud-prompt
+    zgen load krak3n/zsh-gcloud-prompt
     zgen oh-my-zsh plugins/docker
     zgen oh-my-zsh plugins/docker-compose
     zgen oh-my-zsh plugins/kubectl
