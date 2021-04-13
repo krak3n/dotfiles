@@ -37,6 +37,7 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/direnv
     zgen oh-my-zsh plugins/httpie
     zgen oh-my-zsh plugins/fzf
+	zgen load chrissicool/zsh-256color
 
 	# Platforms / Utils
     zgen oh-my-zsh plugins/aws
