@@ -2,9 +2,12 @@
 # Oh My ZSH
 #
 
-autoload -U colors; colors
-autoload -Uz url-quote-magic
-zle -N self-insert url-quote-magic
+fpath=("$HOME/.completions" $fpath)
+
+export PATH="/usr/local/sbin:$PATH"
+export EDITOR='nvim'
+export FZF_BASE=$HOME/.fzf
+export CLOUDSDK_HOME=$HOME/.google-cloud-sdk
 
 ###################
 # Pre run scripts
@@ -24,40 +27,55 @@ source "${HOME}/.zgen/zgen.zsh"
 # if the init scipt doesn't exist
 if ! zgen saved; then
     zgen oh-my-zsh
+
+	# SSH
     zgen oh-my-zsh plugins/ssh
     zgen oh-my-zsh plugins/ssh-agent
+
+	# UX
     zgen oh-my-zsh plugins/git
-    zgen oh-my-zsh plugins/docker
-    zgen oh-my-zsh plugins/docker-compose
+    zgen oh-my-zsh plugins/direnv
     zgen oh-my-zsh plugins/httpie
-    zgen oh-my-zsh plugins/aws
-    zgen oh-my-zsh plugins/golang
     zgen oh-my-zsh plugins/fzf
 
+	# Platforms / Utils
+    zgen oh-my-zsh plugins/aws
+    zgen oh-my-zsh plugins/gcloud
+    zgen load superbrothers/zsh-gcloud-prompt
+    zgen oh-my-zsh plugins/docker
+    zgen oh-my-zsh plugins/docker-compose
+    zgen oh-my-zsh plugins/kubectl
+    zgen oh-my-zsh plugins/helm
     zgen load superbrothers/zsh-kubectl-prompt
+
+	# Languages
+    zgen oh-my-zsh plugins/golang
+
+	# Theme
     zgen load krak3n/zsh-theme krak3n.zsh-theme
 
     zgen save
 fi
 
-###################
-# General
-###################
+#
+# Plugin Agnostic Settings
+#
 
-export PATH="/usr/local/sbin:$PATH"
+autoload -U colors; colors
+autoload -Uz url-quote-magic
 
-# Extra Completions
-fpath=("$HOME/.completions" $fpath)
+zle -N self-insert url-quote-magic
+
 autoload -U compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
 
-# Set default Editor to Vim
-export EDITOR='nvim'
+#
+# Go Version Manager
+#
 
-# Pretty json
-alias mjson='python -mjson.tool'
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
-# Copy / Paste integration aliases
+# # Copy / Paste integration aliases
 if (( $+commands[xclip] )); then
 	alias cc='xclip -selection clipboard'
 	alias cv='xclip -selection clipboard -o'
@@ -71,58 +89,6 @@ fi
 if (( $+commands[pbpaste] )); then
 	alias cv='pbpaste'
 fi
-
-# Generate a uuid and copy it to the clipboaed
-uuidv4() {
-	uuidgen | tr -d '\n' | xclip -selection clipboard
-}
-
-# direnv - autoenv alternative
-eval "$(direnv hook zsh)"
-
-# bit (git cli)
-complete -o nospace -C /home/chris/.local/bin/bit bit
-
-# FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-###################
-# Languages
-###################
-
-# Python
-export DISABLE_VENV_CD=1
-export VIRTUAL_ENV_DISABLE_PROMPT=1
-[[ -s "/usr/local/bin/virtualenvwrapper.sh" ]] && source "/usr/local/bin/virtualenvwrapper.sh"
-
-# Go
-alias golm='go list -m -f '"'"'{{ .Path }} | {{ .Dir }}'"'"' all'
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
-
-# Ruby Gem
-if which ruby >/dev/null && which gem >/dev/null; then
-    PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
-fi
-
-###################
-# Opperations
-###################
-
-#
-# GCloud SDk
-#
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f "$HOME/.google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/.google-cloud-sdk/path.zsh.inc"; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f "$HOME/.google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/.google-cloud-sdk/completion.zsh.inc"; fi
-
-#
-# Helm
-#
-
-if (( $+commands[helm] )); then source <(helm completion zsh); fi
 
 ###################
 # Post run scripts
