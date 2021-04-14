@@ -63,6 +63,9 @@ Plug 'sgur/vim-editorconfig'
 "Golang
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
+" Terraform
+Plug 'hashivim/vim-terraform'
+
 " End vim-plug
 call plug#end()
 
@@ -95,6 +98,11 @@ if isdirectory(expand(plugdir . "/onedark.vim"))
   colorscheme onedark
 
 endif
+
+" Protobuf Syntax Highlight
+augroup filetype
+  au! BufRead,BufNewFile *.proto setfiletype proto
+augroup end
 
 "     ____    __  __  _
 "    / __/__ / /_/ /_(_)__  ___ ____
@@ -260,8 +268,8 @@ nnoremap <C-l> <C-w>l
 
 " Use alt + hjkl to resize windows
 nnoremap <M-h>  :vertical resize -2<CR>
-nnoremap <M-j>  :resize -2<CR>
-nnoremap <M-k>  :resize +2<CR>
+nnoremap <M-j>  :resize +2<CR>
+nnoremap <M-k>  :resize -2<CR>
 nnoremap <M-l>  :vertical resize +2<CR>
 
 " Use <Tab> / <S-Tab> in normal mode to move between buffers

@@ -17,7 +17,9 @@
   "explorer.icon.enableVimDevicons": false,
   "explorer.icon.enableNerdfont": true,
   "explorer.previewAction.onHover": false,
-  "explorer.width": 30,
+  "explorer.position": "right",
+  "explorer.file.showHiddenFiles": true,
+  "explorer.width": 60,
   "git.enableGutters": true,
   "git.addedSign.hlGroup": "GitGutterAdd",
   "git.changedSign.hlGroup": "GitGutterChange",
@@ -28,6 +30,7 @@
   "git.showCommitInFloating": true,
   "go.enable": true,
   "go.goplsOptions": {
+    "allowModfileModifications": true,
     "analyses": {
       "fieldalignment": true,
       "shadow": true,
@@ -40,6 +43,13 @@
     "linkTarget": "pkg.go.dev",
     "staticcheck": true,
     "usePlaceholders": true
+  },
+  "languageserver": {
+    "terraform": {
+      "command": "terraform-lsp",
+      "filetypes": ["terraform"],
+      "initializationOptions": {}
+    }
   },
   "suggest.snippetIndicator": " ",
   "snippets.ultisnips.directories": [
