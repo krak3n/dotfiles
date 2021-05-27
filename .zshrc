@@ -47,6 +47,7 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/docker-compose
     zgen oh-my-zsh plugins/kubectl
     zgen oh-my-zsh plugins/helm
+    zgen oh-my-zsh plugins/terraform
     zgen load superbrothers/zsh-kubectl-prompt
 
 	# Languages
@@ -98,3 +99,5 @@ fi
 if [ -d $HOME/.zsh.post.d ]; then
 	for file in $HOME/.zsh.post.d/**/*(.); do source $file; done
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

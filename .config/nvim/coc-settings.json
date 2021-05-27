@@ -45,11 +45,16 @@
     "usePlaceholders": true
   },
   "languageserver": {
-    "terraform": {
-      "command": "terraform-lsp",
-      "filetypes": ["terraform"],
-      "initializationOptions": {}
-    }
+		"terraform": {
+			"command": "terraform-ls",
+			"args": ["serve"],
+			"filetypes": [
+				"terraform",
+				"tf"
+			],
+			"initializationOptions": {},
+			"settings": {}
+		}
   },
   "suggest.snippetIndicator": " ",
   "snippets.ultisnips.directories": [
