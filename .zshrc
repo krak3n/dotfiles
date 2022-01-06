@@ -1,8 +1,15 @@
+
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the start of this file.
+[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
+#### END FIG ENV VARIABLES ####
 #
 # Oh My ZSH
 #
 
 fpath=("$HOME/.completions" $fpath)
+
+[[ -z $precmd_functions ]] && precmd_functions=()
 
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export EDITOR='nvim'
@@ -101,3 +108,8 @@ if [ -d $HOME/.zsh.post.d ]; then
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the end of this file.
+[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
+#### END FIG ENV VARIABLES ####
