@@ -69,3 +69,8 @@ indent_size = 2
 [*.{tf,tfstate,tfvars}]
 indent_style = space
 indent_size = 2
+
+# Lua
+[*.lua]
+indent_style = space
+indent_size = 2

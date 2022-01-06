@@ -97,6 +97,18 @@ fi
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+#
+# Pulumi
+#
+
+# add Pulumi to the PATH
+if [ -d $HOME/.pulumi/bin ]; then
+	export PATH=$PATH:$HOME/.pulumi/bin
+fi
+
+# lua
+alias luamake=/Users/chris/.config/nvim/lua-language-server/3rd/luamake/luamake
+
 ###################
 # Post run scripts
 ###################
