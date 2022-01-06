@@ -4,15 +4,14 @@ snippet tt "Table Test" b
 func Test${1:name}(t *testing.T) {
 	t.Parallel()
 
-	type tc struct {}
+	type tc struct{}
 
-	cases := map[string]struct {
-	}{
+	cases := map[string]*tc{
 		"": {},
 	}
 
-	for name, testCase := range cases {
-		tc := testCase
+	for name, tc := range cases {
+		tc := tc
 
 		t.Run(name, func(t *testing.T) {
 			t.Parallel()

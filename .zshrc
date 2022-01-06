@@ -1,8 +1,3 @@
-
-#### FIG ENV VARIABLES ####
-# Please make sure this block is at the start of this file.
-[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
-#### END FIG ENV VARIABLES ####
 #
 # Oh My ZSH
 #
@@ -99,6 +94,9 @@ if (( $+commands[pbpaste] )); then
 	alias cv='pbpaste'
 fi
 
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 ###################
 # Post run scripts
 ###################
@@ -106,10 +104,3 @@ fi
 if [ -d $HOME/.zsh.post.d ]; then
 	for file in $HOME/.zsh.post.d/**/*(.); do source $file; done
 fi
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-#### FIG ENV VARIABLES ####
-# Please make sure this block is at the end of this file.
-[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
-#### END FIG ENV VARIABLES ####
