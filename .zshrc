@@ -71,16 +71,11 @@ zle -N self-insert url-quote-magic
 autoload -U compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
 
-#
 # Go Version Manager
-#
-
-alias g="$GOPATH/bin/g"
-
 export GOPATH="$HOME/go"
 export GOROOT="$HOME/.go"
-
 export PATH="$GOPATH/bin:$PATH"
+alias g="$GOPATH/bin/g"
 
 # # Copy / Paste integration aliases
 if (( $+commands[xclip] )); then
