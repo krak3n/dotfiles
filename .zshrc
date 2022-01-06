@@ -4,7 +4,7 @@
 
 fpath=("$HOME/.completions" $fpath)
 
-export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export EDITOR='nvim'
 export FZF_BASE=$HOME/.fzf
 export CLOUDSDK_HOME=$HOME/.google-cloud-sdk
@@ -75,7 +75,12 @@ autoload -U +X bashcompinit && bashcompinit
 # Go Version Manager
 #
 
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+alias g="$GOPATH/bin/g"
+
+export GOPATH="$HOME/go"
+export GOROOT="$HOME/.go"
+
+export PATH="$GOPATH/bin:$PATH"
 
 # # Copy / Paste integration aliases
 if (( $+commands[xclip] )); then
