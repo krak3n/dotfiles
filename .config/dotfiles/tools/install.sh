@@ -53,7 +53,12 @@ curl -sSL https://git.io/g-install | sh -s
 unset GOROOT
 unset GOPATH
 
+echo "Restarting zsh Shell"
+
+exec zsh
+
 echo "Installation Complete"
 
 echo "Changing directory back to $CWD"
 cd $CWD
+
