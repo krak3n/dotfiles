@@ -40,7 +40,7 @@ if [ "$(uname)" == "Darwin" ]; then
 
   echo "Installing Dependencies using Homebrew on macOS"
 
-  brew bundle
+  brew bundle --global
 fi
 
 echo "Installation Complete"
