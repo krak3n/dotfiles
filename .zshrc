@@ -28,37 +28,37 @@ source "${HOME}/.zgen/zgen.zsh"
 
 # if the init scipt doesn't exist
 if ! zgen saved; then
-    zgen oh-my-zsh
+  zgen oh-my-zsh
 
 	# SSH
-    zgen oh-my-zsh plugins/ssh
-    zgen oh-my-zsh plugins/ssh-agent
+  zgen oh-my-zsh plugins/ssh
+  zgen oh-my-zsh plugins/ssh-agent
 
 	# UX
-    zgen oh-my-zsh plugins/git
-    zgen oh-my-zsh plugins/direnv
-    zgen oh-my-zsh plugins/httpie
-    zgen oh-my-zsh plugins/fzf
-	zgen load chrissicool/zsh-256color
+  zgen oh-my-zsh plugins/git
+  zgen oh-my-zsh plugins/direnv
+  zgen oh-my-zsh plugins/httpie
+  zgen oh-my-zsh plugins/fzf
+  zgen load chrissicool/zsh-256color
 
 	# Platforms / Utils
-    zgen oh-my-zsh plugins/aws
-    zgen oh-my-zsh plugins/gcloud
-    zgen load krak3n/zsh-gcloud-prompt
-    zgen oh-my-zsh plugins/docker
-    zgen oh-my-zsh plugins/docker-compose
-    zgen oh-my-zsh plugins/kubectl
-    zgen oh-my-zsh plugins/helm
-    zgen oh-my-zsh plugins/terraform
-    zgen load superbrothers/zsh-kubectl-prompt
+  zgen oh-my-zsh plugins/aws
+  zgen oh-my-zsh plugins/gcloud
+  zgen load krak3n/zsh-gcloud-prompt
+  zgen oh-my-zsh plugins/docker
+  zgen oh-my-zsh plugins/docker-compose
+  zgen oh-my-zsh plugins/kubectl
+  zgen oh-my-zsh plugins/helm
+  zgen oh-my-zsh plugins/terraform
+  zgen load superbrothers/zsh-kubectl-prompt
 
 	# Languages
-    zgen oh-my-zsh plugins/golang
+  zgen oh-my-zsh plugins/golang
 
 	# Theme
-    zgen load krak3n/zsh-theme krak3n.zsh-theme
+  zgen load krak3n/zsh-theme krak3n.zsh-theme
 
-    zgen save
+  zgen save
 fi
 
 #
