@@ -6,7 +6,7 @@ echo "Changing directory to $HOME"
 cd $HOME
 
 while true; do
-    read -p "Backup files what would be overwritten by checkout? [Y/n]: " yn
+    read -p "Backup that would be overwritten by checkout? [Y/n]: " yn
     case $yn in
         [Yy]* ) BACKUP=1; break;;
         [Nn]* ) BACKUP=0; break;;
@@ -42,6 +42,16 @@ if [ "$(uname)" == "Darwin" ]; then
 
   brew bundle --global
 fi
+
+echo "Installing g Golang Version Manager"
+
+export GOROOT=~/.local/share/go/root
+export GOPATH=~/.local/share/go/path
+
+curl -sSL https://git.io/g-install | sh -s
+
+unset GOROOT
+unset GOPATH
 
 echo "Installation Complete"
 

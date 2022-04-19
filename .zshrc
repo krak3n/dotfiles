@@ -74,9 +74,11 @@ autoload -U compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
 
 # Go Version Manager
-export GOPATH="$HOME/go"
-export GOROOT="$HOME/.go"
+export GOROOT="$HOME/.local/share/go/root"
+export GOPATH="$HOME/.local/share/go/path"
+
 export PATH="$GOPATH/bin:$PATH"
+
 alias g="$GOPATH/bin/g"
 
 # # Copy / Paste integration aliases
