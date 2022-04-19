@@ -31,6 +31,12 @@ fi
 git --git-dir=$HOME/.dotfiles --work-tree=$HOME checkout
 git --git-dir=$HOME/.dotfiles --work-tree=$HOME config --local status.showUntrackedFiles no
 
+if [ "$(uname)" == "Darwin" ]; then
+  echo "Installing Dependencies using Homebrew on macOS"
+
+  brew bundle
+fi
+
 echo "Installation Complete"
 
 echo "Changing directory back to $CWD"

@@ -5,13 +5,7 @@ directory. This means files can be added where they are without the need for sym
 
 ## Dependencies
 
-Before installing ensure the following OS level dependencies are installed.
-
-* `git`
-* `zsh`
-* `ohmyzsh` with `zgen`
-* `tmux` with `tpm`
-* `neovim` with `vim-plug`
+Dependencies are manged via Homebrew.
 
 ## Installation
 
