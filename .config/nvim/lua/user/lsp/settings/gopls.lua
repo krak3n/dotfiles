@@ -1,17 +1,18 @@
 return {
 	settings = {
-    gopls = {
-      analyses = {
-        fieldalignment = true,
-        unusedparams = true,
-        shadow = true,
-      },
-      completeUnimported = true,
-      directoryFilters = { "-.git" },
-      experimentalWorkspaceModule = true,
-      gofumpt = true,
-      staticcheck = true,
-      usePlaceholders = true,
-    },
+		gopls = {
+			analyses = {
+				fieldalignment = true,
+				unusedparams = true,
+				shadow = true,
+			},
+			semanticTokens = true,
+			completeUnimported = true,
+			directoryFilters = { "-.git" },
+			experimentalWorkspaceModule = true,
+			gofumpt = false,
+			staticcheck = true,
+			usePlaceholders = true,
+		},
 	},
 }

@@ -7,8 +7,10 @@ if not ok then
 end
 
 indent.setup{
+  char = "┊",
   show_end_of_line = true,
   show_current_context = true,
   show_current_context_start = true,
-  filetype_exclude = {'help', 'packer', 'NvimTree', 'lsp-installer'}
+  filetype_exclude = {'help', 'packer', 'NvimTree', 'lsp-installer'},
+  use_treesitter = true,
 }

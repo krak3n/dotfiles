@@ -19,19 +19,25 @@ null_ls.setup({
 		end
 	end,
 	sources = {
+		-- General
+		formatting.prettier.with({
+			extra_args = { "--no-semi", "--jsx-single-quote" },
+			disable_filetypes = { "yaml", "gotmpl" },
+		}),
+		-- Make
+		formatting.cmake_format,
 		-- Lua
 		formatting.stylua,
 		-- Python
-		formatting.prettier.with({
-			extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
-		}),
 		formatting.black.with({
 			extra_args = { "--fast" },
 		}),
 		-- Golang
 		formatting.gofumpt,
 		formatting.goimports,
-		formatting.golines,
+		formatting.golines.with({
+			extra_args = { "-m 128" },
+		}),
 		diagnostics.golangci_lint,
 	},
 })

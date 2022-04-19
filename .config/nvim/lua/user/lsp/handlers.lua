@@ -88,6 +88,17 @@ M.on_attach = function(client, bufnr)
 		client.resolved_capabilities.document_formatting = false
 	end
 
+	if client.name == "gopls" then
+		client.resolved_capabilities.document_formatting = false
+	end
+
+	if vim.bo[bufnr].buftype ~= "" or vim.bo[bufnr].filetype == "helm" then
+		vim.diagnostic.disable(bufnr)
+		vim.defer_fn(function()
+			vim.diagnostic.reset(nil, bufnr)
+		end, 1000)
+	end
+
 	lsp_keymaps(bufnr)
 	lsp_highlight_document(client)
 end
