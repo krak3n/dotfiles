@@ -32,6 +32,12 @@ git --git-dir=$HOME/.dotfiles --work-tree=$HOME checkout
 git --git-dir=$HOME/.dotfiles --work-tree=$HOME config --local status.showUntrackedFiles no
 
 if [ "$(uname)" == "Darwin" ]; then
+
+  if [[ $(command -v brew) == "" ]]; then
+    echo "Installing Hombrew on macOS"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  fi
+
   echo "Installing Dependencies using Homebrew on macOS"
 
   brew bundle
