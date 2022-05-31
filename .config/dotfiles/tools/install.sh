@@ -33,6 +33,9 @@ git --git-dir=$HOME/.dotfiles --work-tree=$HOME config --local status.showUntrac
 
 if [ "$(uname)" == "Darwin" ]; then
 
+  echo "Installing xcode-select --install"
+  sudo xcode-select --install
+
   if [[ $(command -v brew) == "" ]]; then
     echo "Installing Hombrew on macOS"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -61,4 +64,3 @@ echo "Installation Complete"
 
 echo "Changing directory back to $CWD"
 cd $CWD
-
