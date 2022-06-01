@@ -6,7 +6,7 @@ fpath=("$HOME/.completions" $fpath)
 
 [[ -z $precmd_functions ]] && precmd_functions=()
 
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:/opt/homebrew/bin:$PATH"
 export EDITOR='nvim'
 export FZF_BASE=$HOME/.fzf
 export CLOUDSDK_HOME=$HOME/.google-cloud-sdk
