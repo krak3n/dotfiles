@@ -61,6 +61,7 @@ brew "nats-io/nats-tools/nats"
 brew "tidwall/jj/jj"
 brew "tinygo-org/tools/tinygo"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
+cask "docker"
 cask "font-hack-nerd-font"
 cask "github"
 cask "google-cloud-sdk"
