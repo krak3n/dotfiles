@@ -1,14 +1,15 @@
-require "user.options"
-require "user.keymaps"
-require "user.plugins"
-require "user.theme"
-require "user.completion"
-require "user.lsp"
-require "user.telescope"
-require "user.treesitter"
-require "user.autopairs"
-require "user.indent"
-require "user.gitsigns"
-require "user.comment"
-require "user.nvimtree"
-require "user.bufferline"
+require("user.options")
+require("user.keymaps")
+require("user.plugins")
+require("user.theme")
+require("user.completion")
+require("user.lsp")
+require("user.telescope")
+require("user.treesitter")
+require("user.autopairs")
+require("user.indent")
+require("user.gitsigns")
+require("user.comment")
+require("user.nvimtree")
+require("user.bufferline")
+require("user.lualine")

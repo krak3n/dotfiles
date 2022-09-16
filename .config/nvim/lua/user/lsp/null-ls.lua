@@ -34,7 +34,7 @@ null_ls.setup({
 		}),
 		-- Golang
 		formatting.gofumpt,
-		formatting.goimports,
+		-- formatting.goimports,
 		formatting.golines.with({
 			extra_args = { "-m 128" },
 		}),

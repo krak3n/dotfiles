@@ -102,6 +102,12 @@ return packer.startup(function(use)
 	})
 	use("moll/vim-bbye")
 
+	-- Status Line
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+	})
+
 	-- Helm Charts
 	use("towolf/vim-helm")
 
