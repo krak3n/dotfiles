@@ -1,6 +1,9 @@
 # Reload when changes to this file are made
 live_config_reload: true
 
+env:
+  TERM: xterm-256color
+
 # No transparency
 window: 
   opacity: 1.0
