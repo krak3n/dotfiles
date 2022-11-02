@@ -11,6 +11,7 @@ export PATH="/opt/homebrew/bin:$(brew --prefix)/Caskroom/google-cloud-sdk/latest
 export EDITOR='nvim'
 export FZF_BASE=$HOME/.fzf
 export CLOUDSDK_HOME=$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
 ###################
 # Pre run scripts
@@ -32,7 +33,6 @@ if ! zgen saved; then
   zgen oh-my-zsh
 
 	# SSH
-  zgen oh-my-zsh plugins/ssh
   zgen oh-my-zsh plugins/ssh-agent
 
 	# UX
