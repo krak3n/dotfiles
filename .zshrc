@@ -7,6 +7,7 @@ fpath=("$HOME/.completions" $fpath)
 [[ -z $precmd_functions ]] && precmd_functions=()
 
 export PATH="/usr/local/bin:/usr/local/sbin:/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export PATH="/opt/homebrew/bin:$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin:$PATH"
 export EDITOR='nvim'
 export FZF_BASE=$HOME/.fzf
@@ -112,6 +113,9 @@ fi
 # lua
 alias luamake=/Users/chris/.config/nvim/lua-language-server/3rd/luamake/luamake
 
+# now
+alias now='date +%s'
+
 ###################
 # Post run scripts
 ###################
@@ -119,3 +123,6 @@ alias luamake=/Users/chris/.config/nvim/lua-language-server/3rd/luamake/luamake
 if [ -d $HOME/.zsh.post.d ]; then
 	for file in $HOME/.zsh.post.d/**/*(.); do source $file; done
 fi
+
+export GOPATH="$HOME/.local/share/go/path"; export GOROOT="$HOME/.local/share/go/root"; export PATH="$GOPATH/bin:$PATH"; # g-install: do NOT edit, see https://github.com/stefanmaric/g
+alias gv="$GOPATH/bin/g"; # g-install: do NOT edit, see https://github.com/stefanmaric/g
