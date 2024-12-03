@@ -1,6 +1,7 @@
 #
 # Oh My ZSH
 #
+export TERM="alacritty"
 
 fpath=("$HOME/.completions" $fpath)
 
@@ -126,3 +127,6 @@ fi
 
 export GOPATH="$HOME/.local/share/go/path"; export GOROOT="$HOME/.local/share/go/root"; export PATH="$GOPATH/bin:$PATH"; # g-install: do NOT edit, see https://github.com/stefanmaric/g
 alias gv="$GOPATH/bin/g"; # g-install: do NOT edit, see https://github.com/stefanmaric/g
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

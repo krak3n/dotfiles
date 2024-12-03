@@ -4,10 +4,6 @@ live_config_reload: true
 env:
   TERM: xterm-256color
 
-# No transparency
-window: 
-  opacity: 1.0
-
 # Colors (One Dark)
 colors:
   # Default colors
@@ -35,7 +31,7 @@ colors:
     blue:    '0x61AFEF'
     magenta: '0xC678DD'
     cyan:    '0x56B6C2'
-    white:   '0xFFFFFF'
+    white:   '0xFFFFFF' 
 
 # Bolds fonts use brighter colours
 draw_bold_text_with_bright_colors: true
@@ -62,8 +58,9 @@ font:
     x: 0
     y: 0
 
-# Padding
+# Padding / No Transparency
 window:
+  opacity: 1.0
   decorations: full
   padding:
     x: 0
