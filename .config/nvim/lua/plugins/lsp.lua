@@ -210,7 +210,6 @@ return {
         settings = {
           gopls = {
             analyses = {
-              fieldalignment = true,
               shadow = true,
               nilness = true,
               loopclosure = true,
@@ -234,6 +233,9 @@ return {
           },
         },
       },
+
+      -- buf_ls for proto
+      buf_ls = {},
 
       -- JSON
       jsonls = {
